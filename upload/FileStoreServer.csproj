@@ -1,0 +1,928 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABB0BE61-B355-4125-993D-14DFA8C014A4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>upload</RootNamespace>
+    <AssemblyName>upload</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.1\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.3.7\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.3.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="file.html" />
+    <Content Include="Home.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Handler1.ashx" />
+    <Content Include="File.ashx" />
+    <Content Include="node_modules\array-find-index\license" />
+    <Content Include="node_modules\array-find-index\package.json" />
+    <Content Include="node_modules\array-find-index\readme.md" />
+    <Content Include="node_modules\mint-ui\LICENSE" />
+    <Content Include="node_modules\mint-ui\node_modules\array-find-index\license" />
+    <Content Include="node_modules\mint-ui\node_modules\array-find-index\package.json" />
+    <Content Include="node_modules\mint-ui\node_modules\array-find-index\readme.md" />
+    <Content Include="node_modules\mint-ui\node_modules\raf.js\package.json" />
+    <Content Include="node_modules\mint-ui\node_modules\raf.js\README.md" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\.babelrc" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\.circleci\config.yml" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\.circleci\setup_puppeteer.sh" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\.editorconfig" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\.eslintrc" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\LICENSE" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\package.json" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\README.md" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\types\test\tsconfig.json" />
+    <Content Include="node_modules\mint-ui\package.json" />
+    <Content Include="node_modules\mint-ui\packages\actionsheet\package.json" />
+    <Content Include="node_modules\mint-ui\packages\actionsheet\README.md" />
+    <Content Include="node_modules\mint-ui\packages\actionsheet\src\actionsheet.vue" />
+    <Content Include="node_modules\mint-ui\packages\badge\package.json" />
+    <Content Include="node_modules\mint-ui\packages\badge\README.md" />
+    <Content Include="node_modules\mint-ui\packages\badge\src\badge.vue" />
+    <Content Include="node_modules\mint-ui\packages\button\package.json" />
+    <Content Include="node_modules\mint-ui\packages\button\README.md" />
+    <Content Include="node_modules\mint-ui\packages\button\src\button.vue" />
+    <Content Include="node_modules\mint-ui\packages\cell-swipe\package.json" />
+    <Content Include="node_modules\mint-ui\packages\cell-swipe\src\cell-swipe.vue" />
+    <Content Include="node_modules\mint-ui\packages\cell\package.json" />
+    <Content Include="node_modules\mint-ui\packages\cell\README.md" />
+    <Content Include="node_modules\mint-ui\packages\cell\src\cell.vue" />
+    <Content Include="node_modules\mint-ui\packages\checklist\package.json" />
+    <Content Include="node_modules\mint-ui\packages\checklist\README.md" />
+    <Content Include="node_modules\mint-ui\packages\checklist\src\checklist.vue" />
+    <Content Include="node_modules\mint-ui\packages\datetime-picker\package.json" />
+    <Content Include="node_modules\mint-ui\packages\datetime-picker\README.md" />
+    <Content Include="node_modules\mint-ui\packages\datetime-picker\src\datetime-picker.vue" />
+    <Content Include="node_modules\mint-ui\packages\field\package.json" />
+    <Content Include="node_modules\mint-ui\packages\field\README.md" />
+    <Content Include="node_modules\mint-ui\packages\field\src\field.vue" />
+    <Content Include="node_modules\mint-ui\packages\header\README.md" />
+    <Content Include="node_modules\mint-ui\packages\header\src\header.vue" />
+    <Content Include="node_modules\mint-ui\packages\index-list\package.json" />
+    <Content Include="node_modules\mint-ui\packages\index-list\README.md" />
+    <Content Include="node_modules\mint-ui\packages\index-list\src\index-list.vue" />
+    <Content Include="node_modules\mint-ui\packages\index-section\package.json" />
+    <Content Include="node_modules\mint-ui\packages\index-section\README.md" />
+    <Content Include="node_modules\mint-ui\packages\index-section\src\index-section.vue" />
+    <Content Include="node_modules\mint-ui\packages\indicator\package.json" />
+    <Content Include="node_modules\mint-ui\packages\indicator\README.md" />
+    <Content Include="node_modules\mint-ui\packages\indicator\src\indicator.vue" />
+    <Content Include="node_modules\mint-ui\packages\infinite-scroll\README.md" />
+    <Content Include="node_modules\mint-ui\packages\lazyload\README.md" />
+    <Content Include="node_modules\mint-ui\packages\loadmore\package.json" />
+    <Content Include="node_modules\mint-ui\packages\loadmore\README.md" />
+    <Content Include="node_modules\mint-ui\packages\loadmore\src\loadmore.vue" />
+    <Content Include="node_modules\mint-ui\packages\message-box\README.md" />
+    <Content Include="node_modules\mint-ui\packages\message-box\src\message-box.vue" />
+    <Content Include="node_modules\mint-ui\packages\navbar\package.json" />
+    <Content Include="node_modules\mint-ui\packages\navbar\README.md" />
+    <Content Include="node_modules\mint-ui\packages\navbar\src\navbar.vue" />
+    <Content Include="node_modules\mint-ui\packages\palette-button\package.json" />
+    <Content Include="node_modules\mint-ui\packages\palette-button\README.md" />
+    <Content Include="node_modules\mint-ui\packages\palette-button\src\palette-button.vue" />
+    <Content Include="node_modules\mint-ui\packages\picker\package.json" />
+    <Content Include="node_modules\mint-ui\packages\picker\README.md" />
+    <Content Include="node_modules\mint-ui\packages\picker\src\picker-slot.vue" />
+    <Content Include="node_modules\mint-ui\packages\picker\src\picker.vue" />
+    <Content Include="node_modules\mint-ui\packages\popup\package.json" />
+    <Content Include="node_modules\mint-ui\packages\popup\README.md" />
+    <Content Include="node_modules\mint-ui\packages\popup\src\popup.vue" />
+    <Content Include="node_modules\mint-ui\packages\progress\package.json" />
+    <Content Include="node_modules\mint-ui\packages\progress\README.md" />
+    <Content Include="node_modules\mint-ui\packages\progress\src\progress.vue" />
+    <Content Include="node_modules\mint-ui\packages\radio\package.json" />
+    <Content Include="node_modules\mint-ui\packages\radio\README.md" />
+    <Content Include="node_modules\mint-ui\packages\radio\src\radio.vue" />
+    <Content Include="node_modules\mint-ui\packages\range\package.json" />
+    <Content Include="node_modules\mint-ui\packages\range\README.md" />
+    <Content Include="node_modules\mint-ui\packages\range\src\index.vue" />
+    <Content Include="node_modules\mint-ui\packages\README.md" />
+    <Content Include="node_modules\mint-ui\packages\search\package.json" />
+    <Content Include="node_modules\mint-ui\packages\search\README.md" />
+    <Content Include="node_modules\mint-ui\packages\search\src\search.vue" />
+    <Content Include="node_modules\mint-ui\packages\spinner\package.json" />
+    <Content Include="node_modules\mint-ui\packages\spinner\README.md" />
+    <Content Include="node_modules\mint-ui\packages\swipe-item\README.md" />
+    <Content Include="node_modules\mint-ui\packages\swipe\package.json" />
+    <Content Include="node_modules\mint-ui\packages\swipe\README.md" />
+    <Content Include="node_modules\mint-ui\packages\swipe\src\swipe-item.vue" />
+    <Content Include="node_modules\mint-ui\packages\swipe\src\swipe.vue" />
+    <Content Include="node_modules\mint-ui\packages\switch\package.json" />
+    <Content Include="node_modules\mint-ui\packages\switch\README.md" />
+    <Content Include="node_modules\mint-ui\packages\switch\src\switch.vue" />
+    <Content Include="node_modules\mint-ui\packages\tab-container-item\README.md" />
+    <Content Include="node_modules\mint-ui\packages\tab-container-item\src\tab-container-item.vue" />
+    <Content Include="node_modules\mint-ui\packages\tab-container\package.json" />
+    <Content Include="node_modules\mint-ui\packages\tab-container\README.md" />
+    <Content Include="node_modules\mint-ui\packages\tab-container\src\tab-container.vue" />
+    <Content Include="node_modules\mint-ui\packages\tab-item\package.json" />
+    <Content Include="node_modules\mint-ui\packages\tab-item\README.md" />
+    <Content Include="node_modules\mint-ui\packages\tab-item\src\tab-item.vue" />
+    <Content Include="node_modules\mint-ui\packages\tabbar\package.json" />
+    <Content Include="node_modules\mint-ui\packages\tabbar\README.md" />
+    <Content Include="node_modules\mint-ui\packages\tabbar\src\tabbar.vue" />
+    <Content Include="node_modules\mint-ui\packages\toast\README.md" />
+    <Content Include="node_modules\mint-ui\packages\toast\src\toast.vue" />
+    <Content Include="node_modules\mint-ui\README.md" />
+    <Content Include="node_modules\mint-ui\src\assets\font\iconfont.ttf" />
+    <Content Include="node_modules\mint-ui\src\assets\loading-spin.svg" />
+    <Content Include="node_modules\raf.js\package.json" />
+    <Content Include="node_modules\raf.js\README.md" />
+    <Content Include="node_modules\vue-lazyload\.babelrc" />
+    <Content Include="node_modules\vue-lazyload\.circleci\config.yml" />
+    <Content Include="node_modules\vue-lazyload\.circleci\setup_puppeteer.sh" />
+    <Content Include="node_modules\vue-lazyload\.editorconfig" />
+    <Content Include="node_modules\vue-lazyload\.eslintrc" />
+    <Content Include="node_modules\vue-lazyload\LICENSE" />
+    <Content Include="node_modules\vue-lazyload\package.json" />
+    <Content Include="node_modules\vue-lazyload\README.md" />
+    <Content Include="node_modules\vue-lazyload\types\test\tsconfig.json" />
+    <Content Include="node_modules\_array-find-index%401.0.2%40array-find-index\license" />
+    <Content Include="node_modules\_array-find-index%401.0.2%40array-find-index\package.json" />
+    <Content Include="node_modules\_array-find-index%401.0.2%40array-find-index\readme.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\LICENSE" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\array-find-index\license" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\array-find-index\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\array-find-index\readme.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\raf.js\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\raf.js\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\.babelrc" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\.circleci\config.yml" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\.circleci\setup_puppeteer.sh" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\.editorconfig" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\.eslintrc" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\LICENSE" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\types\test\tsconfig.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\actionsheet\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\actionsheet\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\actionsheet\src\actionsheet.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\badge\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\badge\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\badge\src\badge.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\button\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\button\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\button\src\button.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell-swipe\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell-swipe\src\cell-swipe.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell\src\cell.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\checklist\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\checklist\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\checklist\src\checklist.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\datetime-picker\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\datetime-picker\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\datetime-picker\src\datetime-picker.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\field\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\field\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\field\src\field.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\header\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\header\src\header.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-list\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-list\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-list\src\index-list.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-section\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-section\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-section\src\index-section.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\indicator\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\indicator\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\indicator\src\indicator.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\infinite-scroll\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\lazyload\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\loadmore\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\loadmore\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\loadmore\src\loadmore.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\message-box\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\message-box\src\message-box.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\navbar\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\navbar\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\navbar\src\navbar.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\palette-button\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\palette-button\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\palette-button\src\palette-button.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\picker\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\picker\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\picker\src\picker-slot.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\picker\src\picker.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\popup\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\popup\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\popup\src\popup.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\progress\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\progress\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\progress\src\progress.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\radio\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\radio\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\radio\src\radio.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\range\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\range\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\range\src\index.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\search\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\search\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\search\src\search.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\spinner\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\spinner\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\swipe-item\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\swipe\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\swipe\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\swipe\src\swipe-item.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\swipe\src\swipe.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\switch\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\switch\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\switch\src\switch.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container-item\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container-item\src\tab-container-item.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container\src\tab-container.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-item\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-item\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-item\src\tab-item.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tabbar\package.json" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tabbar\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tabbar\src\tabbar.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\toast\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\toast\src\toast.vue" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\README.md" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\assets\font\iconfont.ttf" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\assets\loading-spin.svg" />
+    <Content Include="node_modules\_raf.js%400.0.4%40raf.js\package.json" />
+    <Content Include="node_modules\_raf.js%400.0.4%40raf.js\README.md" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\.babelrc" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\.circleci\config.yml" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\.circleci\setup_puppeteer.sh" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\.editorconfig" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\.eslintrc" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\LICENSE" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\package.json" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\README.md" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\types\test\tsconfig.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="node_modules\array-find-index\index.js" />
+    <Content Include="node_modules\mint-ui\lib\actionsheet\index.js" />
+    <Content Include="node_modules\mint-ui\lib\actionsheet\style.css" />
+    <Content Include="node_modules\mint-ui\lib\badge\index.js" />
+    <Content Include="node_modules\mint-ui\lib\badge\style.css" />
+    <Content Include="node_modules\mint-ui\lib\button\index.js" />
+    <Content Include="node_modules\mint-ui\lib\button\style.css" />
+    <Content Include="node_modules\mint-ui\lib\cell-swipe\index.js" />
+    <Content Include="node_modules\mint-ui\lib\cell-swipe\style.css" />
+    <Content Include="node_modules\mint-ui\lib\cell\index.js" />
+    <Content Include="node_modules\mint-ui\lib\cell\style.css" />
+    <Content Include="node_modules\mint-ui\lib\checklist\index.js" />
+    <Content Include="node_modules\mint-ui\lib\checklist\style.css" />
+    <Content Include="node_modules\mint-ui\lib\datetime-picker\index.js" />
+    <Content Include="node_modules\mint-ui\lib\datetime-picker\style.css" />
+    <Content Include="node_modules\mint-ui\lib\field\index.js" />
+    <Content Include="node_modules\mint-ui\lib\field\style.css" />
+    <Content Include="node_modules\mint-ui\lib\font\index.js" />
+    <Content Include="node_modules\mint-ui\lib\font\style.css" />
+    <Content Include="node_modules\mint-ui\lib\header\index.js" />
+    <Content Include="node_modules\mint-ui\lib\header\style.css" />
+    <Content Include="node_modules\mint-ui\lib\index-list\index.js" />
+    <Content Include="node_modules\mint-ui\lib\index-list\style.css" />
+    <Content Include="node_modules\mint-ui\lib\index-section\index.js" />
+    <Content Include="node_modules\mint-ui\lib\index-section\style.css" />
+    <Content Include="node_modules\mint-ui\lib\index.js" />
+    <Content Include="node_modules\mint-ui\lib\indicator\index.js" />
+    <Content Include="node_modules\mint-ui\lib\indicator\style.css" />
+    <Content Include="node_modules\mint-ui\lib\infinite-scroll\index.js" />
+    <Content Include="node_modules\mint-ui\lib\infinite-scroll\style.css" />
+    <Content Include="node_modules\mint-ui\lib\lazyload\index.js" />
+    <Content Include="node_modules\mint-ui\lib\lazyload\style.css" />
+    <Content Include="node_modules\mint-ui\lib\loadmore\index.js" />
+    <Content Include="node_modules\mint-ui\lib\loadmore\style.css" />
+    <Content Include="node_modules\mint-ui\lib\message-box\index.js" />
+    <Content Include="node_modules\mint-ui\lib\message-box\style.css" />
+    <Content Include="node_modules\mint-ui\lib\mint-ui.common.js" />
+    <Content Include="node_modules\mint-ui\lib\navbar\index.js" />
+    <Content Include="node_modules\mint-ui\lib\navbar\style.css" />
+    <Content Include="node_modules\mint-ui\lib\palette-button\index.js" />
+    <Content Include="node_modules\mint-ui\lib\palette-button\style.css" />
+    <Content Include="node_modules\mint-ui\lib\picker\index.js" />
+    <Content Include="node_modules\mint-ui\lib\picker\style.css" />
+    <Content Include="node_modules\mint-ui\lib\popup\index.js" />
+    <Content Include="node_modules\mint-ui\lib\popup\style.css" />
+    <Content Include="node_modules\mint-ui\lib\progress\index.js" />
+    <Content Include="node_modules\mint-ui\lib\progress\style.css" />
+    <Content Include="node_modules\mint-ui\lib\radio\index.js" />
+    <Content Include="node_modules\mint-ui\lib\radio\style.css" />
+    <Content Include="node_modules\mint-ui\lib\range\index.js" />
+    <Content Include="node_modules\mint-ui\lib\range\style.css" />
+    <Content Include="node_modules\mint-ui\lib\search\index.js" />
+    <Content Include="node_modules\mint-ui\lib\search\style.css" />
+    <Content Include="node_modules\mint-ui\lib\spinner\index.js" />
+    <Content Include="node_modules\mint-ui\lib\spinner\style.css" />
+    <Content Include="node_modules\mint-ui\lib\style.css" />
+    <Content Include="node_modules\mint-ui\lib\style.min.css" />
+    <Content Include="node_modules\mint-ui\lib\swipe-item\index.js" />
+    <Content Include="node_modules\mint-ui\lib\swipe-item\style.css" />
+    <Content Include="node_modules\mint-ui\lib\swipe\index.js" />
+    <Content Include="node_modules\mint-ui\lib\swipe\style.css" />
+    <Content Include="node_modules\mint-ui\lib\switch\index.js" />
+    <Content Include="node_modules\mint-ui\lib\switch\style.css" />
+    <Content Include="node_modules\mint-ui\lib\tab-container-item\index.js" />
+    <Content Include="node_modules\mint-ui\lib\tab-container-item\style.css" />
+    <Content Include="node_modules\mint-ui\lib\tab-container\index.js" />
+    <Content Include="node_modules\mint-ui\lib\tab-container\style.css" />
+    <Content Include="node_modules\mint-ui\lib\tab-item\index.js" />
+    <Content Include="node_modules\mint-ui\lib\tab-item\style.css" />
+    <Content Include="node_modules\mint-ui\lib\tabbar\index.js" />
+    <Content Include="node_modules\mint-ui\lib\tabbar\style.css" />
+    <Content Include="node_modules\mint-ui\lib\toast\index.js" />
+    <Content Include="node_modules\mint-ui\lib\toast\style.css" />
+    <Content Include="node_modules\mint-ui\node_modules\array-find-index\index.js" />
+    <Content Include="node_modules\mint-ui\node_modules\raf.js\raf.js" />
+    <Content Include="node_modules\mint-ui\node_modules\raf.js\raf.min.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\build.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\karma.conf.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\src\index.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\src\lazy-component.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\src\lazy-container.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\src\lazy-image.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\src\lazy.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\src\listener.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\src\util.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\test\test-spec.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\vue-lazyload.esm.js" />
+    <Content Include="node_modules\mint-ui\node_modules\vue-lazyload\vue-lazyload.js" />
+    <Content Include="node_modules\mint-ui\packages\actionsheet\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\actionsheet\index.js" />
+    <Content Include="node_modules\mint-ui\packages\badge\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\badge\index.js" />
+    <Content Include="node_modules\mint-ui\packages\button\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\button\index.js" />
+    <Content Include="node_modules\mint-ui\packages\cell-swipe\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\cell-swipe\index.js" />
+    <Content Include="node_modules\mint-ui\packages\cell\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\cell\index.js" />
+    <Content Include="node_modules\mint-ui\packages\checklist\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\checklist\index.js" />
+    <Content Include="node_modules\mint-ui\packages\datetime-picker\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\datetime-picker\index.js" />
+    <Content Include="node_modules\mint-ui\packages\field\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\field\index.js" />
+    <Content Include="node_modules\mint-ui\packages\header\index.js" />
+    <Content Include="node_modules\mint-ui\packages\index-list\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\index-list\index.js" />
+    <Content Include="node_modules\mint-ui\packages\index-section\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\index-section\index.js" />
+    <Content Include="node_modules\mint-ui\packages\indicator\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\indicator\index.js" />
+    <Content Include="node_modules\mint-ui\packages\infinite-scroll\index.js" />
+    <Content Include="node_modules\mint-ui\packages\infinite-scroll\src\directive.js" />
+    <Content Include="node_modules\mint-ui\packages\infinite-scroll\src\infinite-scroll.js" />
+    <Content Include="node_modules\mint-ui\packages\lazyload\index.js" />
+    <Content Include="node_modules\mint-ui\packages\lazyload\src\lazyload.js" />
+    <Content Include="node_modules\mint-ui\packages\loadmore\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\loadmore\index.js" />
+    <Content Include="node_modules\mint-ui\packages\message-box\index.js" />
+    <Content Include="node_modules\mint-ui\packages\message-box\src\message-box.js" />
+    <Content Include="node_modules\mint-ui\packages\navbar\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\navbar\index.js" />
+    <Content Include="node_modules\mint-ui\packages\palette-button\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\palette-button\index.js" />
+    <Content Include="node_modules\mint-ui\packages\picker\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\picker\index.js" />
+    <Content Include="node_modules\mint-ui\packages\picker\src\draggable.js" />
+    <Content Include="node_modules\mint-ui\packages\picker\src\translate.js" />
+    <Content Include="node_modules\mint-ui\packages\popup\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\popup\index.js" />
+    <Content Include="node_modules\mint-ui\packages\progress\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\progress\index.js" />
+    <Content Include="node_modules\mint-ui\packages\radio\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\radio\index.js" />
+    <Content Include="node_modules\mint-ui\packages\range\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\range\index.js" />
+    <Content Include="node_modules\mint-ui\packages\range\src\draggable.js" />
+    <Content Include="node_modules\mint-ui\packages\search\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\search\index.js" />
+    <Content Include="node_modules\mint-ui\packages\swipe-item\index.js" />
+    <Content Include="node_modules\mint-ui\packages\swipe\index.js" />
+    <Content Include="node_modules\mint-ui\packages\switch\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\switch\index.js" />
+    <Content Include="node_modules\mint-ui\packages\tab-container-item\index.js" />
+    <Content Include="node_modules\mint-ui\packages\tab-container\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\tab-container\index.js" />
+    <Content Include="node_modules\mint-ui\packages\tab-container\_index.js" />
+    <Content Include="node_modules\mint-ui\packages\tab-item\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\tab-item\index.js" />
+    <Content Include="node_modules\mint-ui\packages\tabbar\cooking.conf.js" />
+    <Content Include="node_modules\mint-ui\packages\tabbar\index.js" />
+    <Content Include="node_modules\mint-ui\packages\toast\index.js" />
+    <Content Include="node_modules\mint-ui\packages\toast\src\toast.js" />
+    <Content Include="node_modules\mint-ui\src\assets\font\iconfont.css" />
+    <Content Include="node_modules\mint-ui\src\index.js" />
+    <Content Include="node_modules\mint-ui\src\mixins\emitter.js" />
+    <Content Include="node_modules\mint-ui\src\style\empty.css" />
+    <Content Include="node_modules\mint-ui\src\style\popup.css" />
+    <Content Include="node_modules\mint-ui\src\style\var.css" />
+    <Content Include="node_modules\mint-ui\src\utils\clickoutside.js" />
+    <Content Include="node_modules\mint-ui\src\utils\dom.js" />
+    <Content Include="node_modules\mint-ui\src\utils\merge.js" />
+    <Content Include="node_modules\mint-ui\src\utils\popup\index.js" />
+    <Content Include="node_modules\mint-ui\src\utils\popup\popup-manager.js" />
+    <Content Include="node_modules\raf.js\raf.js" />
+    <Content Include="node_modules\raf.js\raf.min.js" />
+    <Content Include="node_modules\vue-lazyload\build.js" />
+    <Content Include="node_modules\vue-lazyload\karma.conf.js" />
+    <Content Include="node_modules\vue-lazyload\src\index.js" />
+    <Content Include="node_modules\vue-lazyload\src\lazy-component.js" />
+    <Content Include="node_modules\vue-lazyload\src\lazy-container.js" />
+    <Content Include="node_modules\vue-lazyload\src\lazy-image.js" />
+    <Content Include="node_modules\vue-lazyload\src\lazy.js" />
+    <Content Include="node_modules\vue-lazyload\src\listener.js" />
+    <Content Include="node_modules\vue-lazyload\src\util.js" />
+    <Content Include="node_modules\vue-lazyload\test\test-spec.js" />
+    <Content Include="node_modules\vue-lazyload\vue-lazyload.esm.js" />
+    <Content Include="node_modules\vue-lazyload\vue-lazyload.js" />
+    <Content Include="node_modules\_array-find-index%401.0.2%40array-find-index\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\actionsheet\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\actionsheet\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\badge\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\badge\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\button\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\button\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\cell-swipe\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\cell-swipe\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\cell\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\cell\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\checklist\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\checklist\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\datetime-picker\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\datetime-picker\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\field\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\field\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\font\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\font\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\header\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\header\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\index-list\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\index-list\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\index-section\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\index-section\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\indicator\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\indicator\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\infinite-scroll\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\infinite-scroll\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\lazyload\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\lazyload\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\loadmore\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\loadmore\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\message-box\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\message-box\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\mint-ui.common.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\navbar\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\navbar\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\palette-button\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\palette-button\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\picker\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\picker\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\popup\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\popup\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\progress\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\progress\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\radio\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\radio\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\range\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\range\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\search\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\search\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\spinner\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\spinner\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\style.min.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\swipe-item\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\swipe-item\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\swipe\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\swipe\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\switch\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\switch\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\tab-container-item\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\tab-container-item\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\tab-container\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\tab-container\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\tab-item\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\tab-item\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\tabbar\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\tabbar\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\toast\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\lib\toast\style.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\array-find-index\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\raf.js\raf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\raf.js\raf.min.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\build.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\karma.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\src\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\src\lazy-component.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\src\lazy-container.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\src\lazy-image.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\src\lazy.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\src\listener.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\src\util.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\test\test-spec.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\vue-lazyload.esm.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\vue-lazyload.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\actionsheet\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\actionsheet\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\badge\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\badge\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\button\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\button\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell-swipe\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell-swipe\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\cell\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\checklist\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\checklist\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\datetime-picker\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\datetime-picker\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\field\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\field\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\header\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-list\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-list\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-section\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\index-section\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\indicator\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\indicator\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\infinite-scroll\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\infinite-scroll\src\directive.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\infinite-scroll\src\infinite-scroll.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\lazyload\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\lazyload\src\lazyload.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\loadmore\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\loadmore\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\message-box\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\message-box\src\message-box.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\navbar\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\navbar\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\palette-button\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\palette-button\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\picker\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\picker\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\picker\src\draggable.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\picker\src\translate.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\popup\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\popup\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\progress\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\progress\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\radio\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\radio\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\range\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\range\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\range\src\draggable.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\search\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\search\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\swipe-item\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\swipe\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\switch\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\switch\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container-item\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-container\_index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-item\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tab-item\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tabbar\cooking.conf.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\tabbar\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\toast\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\packages\toast\src\toast.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\assets\font\iconfont.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\mixins\emitter.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\style\empty.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\style\popup.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\style\var.css" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\utils\clickoutside.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\utils\dom.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\utils\merge.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\utils\popup\index.js" />
+    <Content Include="node_modules\_mint-ui%402.2.13%40mint-ui\src\utils\popup\popup-manager.js" />
+    <Content Include="node_modules\_raf.js%400.0.4%40raf.js\raf.js" />
+    <Content Include="node_modules\_raf.js%400.0.4%40raf.js\raf.min.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\build.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\karma.conf.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\src\index.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\src\lazy-component.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\src\lazy-container.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\src\lazy-image.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\src\lazy.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\src\listener.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\src\util.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\test\test-spec.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\vue-lazyload.esm.js" />
+    <Content Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\vue-lazyload.js" />
+    <Content Include="Scripts\axios.js" />
+    <Content Include="Scripts\axios.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\browser-polyfill.min.js" />
+    <Content Include="Scripts\browser.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+    <Content Include="Site.Mobile.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="File.ashx.cs">
+      <DependentUpon>File.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="node_modules\mint-ui\node_modules\vue-lazyload\types\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\mint-ui\node_modules\vue-lazyload\types\lazyload.d.ts" />
+    <TypeScriptCompile Include="node_modules\mint-ui\node_modules\vue-lazyload\types\test\index.ts" />
+    <TypeScriptCompile Include="node_modules\mint-ui\node_modules\vue-lazyload\types\vue.d.ts" />
+    <TypeScriptCompile Include="node_modules\vue-lazyload\types\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\vue-lazyload\types\lazyload.d.ts" />
+    <TypeScriptCompile Include="node_modules\vue-lazyload\types\test\index.ts" />
+    <TypeScriptCompile Include="node_modules\vue-lazyload\types\vue.d.ts" />
+    <TypeScriptCompile Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\types\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\types\lazyload.d.ts" />
+    <TypeScriptCompile Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\types\test\index.ts" />
+    <TypeScriptCompile Include="node_modules\_mint-ui%402.2.13%40mint-ui\node_modules\vue-lazyload\types\vue.d.ts" />
+    <TypeScriptCompile Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\types\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\types\lazyload.d.ts" />
+    <TypeScriptCompile Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\types\test\index.ts" />
+    <TypeScriptCompile Include="node_modules\_vue-lazyload%401.3.3%40vue-lazyload\types\vue.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20052</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/upload</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

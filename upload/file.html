@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>个人文件存储服务器</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="./node_modules/mint-ui/lib/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <script src="Scripts/common.js"></script>
+    <script>       
+          var ie = ieVersion();
+                if ( ie !=-1 && ie <=8 ) {
+                    location.assign("home");
+                } 
+    </script>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/browser-polyfill.min.js"></script>
+    <script src="Scripts/vue.js"></script>
+    <script src="./node_modules/mint-ui/lib/index.js"></script>
+    <script src="Scripts/axios.min.js"></script>
+    
+    
+    <style>
+        ::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background-color: #bee1eb;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #00aff0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9c3;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: #00aff0;
+}
+
+        body, html {
+             background: linear-gradient( white,lightblue ); 
+             
+            margin: 0;
+            padding: 0;
+            height: 100%;
+  scrollbar-color: transparent transparent;
+  scrollbar-track-color: transparent;
+  -ms-scrollbar-track-color: transparent;
+            
+        }
+        a{
+            color:white;
+        }
+        th {
+            text-align: center;
+        }
+        td a,td{
+            color:navy;
+            word-break: break-word;
+
+        }
+
+        thead {
+            background-color: blue;
+            color:white;
+        }
+
+        tbody {
+            background-color: azure;
+            
+        }
+
+
+        .footer {
+            line-height:100%;
+            left: 0px;
+            right: 0px;
+            height:20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .navbar-toggle{
+            float: left;
+            margin-left: 15px;
+        }
+        #navbar{
+             background: linear-gradient( red, indianred ); 
+          
+        }
+        #fileTable{           
+        
+         height:calc(100% - 60px);
+         
+            
+        }
+        #fileTable>table{
+               
+          
+        }
+        #fileTable tbody
+        {
+                    
+        }
+        table
+        {
+              display:block;  
+              height:calc(100%);  
+         overflow-y:hidden;
+        }
+         tbody {  
+           display:block;  
+           height:calc(100% - 35px);  
+           overflow-y:scroll;
+        } 
+         table thead, tbody tr {  
+           display:table;  
+           width:100%;
+           table-layout:fixed;  
+        }  
+       
+       
+        #content{
+          
+            height: calc(100% - 90px) ;
+            margin-bottom:0;
+        }
+        @media only screen and  (max-width:760px)
+        {
+    #fileTable{           
+        
+         height:calc(100% - 146px);
+         
+            
+        }
+        }
+    </style>
+</head>
+<body>
+    <div id="app" style="width:100%;height:100%">
+        <nav class="navbar" style="border: 0">
+            <div id="navbar" class="container-fluid" >
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" style="background-color:black" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span style="background-color:white" class="sr-only">Toggle navigation</span>
+                        <span style="background-color:white" class="icon-bar"></span>
+                        <span style="background-color:white" class="icon-bar"></span>
+                        <span style="background-color:white" class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">个人文件存储服务器</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!--<ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>-->
+                    <div class="navbar-form navbar-left" :style="{'margin-left': device===true?0:'20%','padding-left':device===true?0:'15px'}">
+                        <div class="form-group">
+                            <input id="searchValue" type="text" class="form-control" v-model="searchValue" @keyup.enter="searchFile" placeholder="输入文件名">
+                        </div>
+                        <button type="button" class="btn btn-default" @click="searchFile">搜索</button>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">登录</a></li>
+                        <li><a href="#">注册</a></li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div id="content" style="width:100%;" class="container-fluid">
+            <div class="form-inline" style="max-height:150px">
+                <div class="form-group" >
+                    <input type="file" ref="file"  class="form-control-static" multiple id="inputFile" name="inputFile" />
+                </div>
+                <div class="form-group">
+                    <button id="uploadFileBtn" class="form-control" @click="uploadFile('inputFile')">
+                        上传
+                        <span class="glyphicon glyphicon-upload"></span>
+                    </button>
+
+                </div>
+                <div class="form-group">
+                    <progress id="uploadProgress" v-bind:value="progressValue" max="100" :style="{visibility:progressVisible}"></progress>
+                    <label id="uploadLable" :style="{visibility:progressVisible}">{{progressValue + '%'}}</label>
+                </div>
+
+            </div>
+            <div id="fileTable">
+                <table  class="table table-responsive table-hover table-bordered">
+                    <!--<caption style="text-align:center">已上传文件列表</caption>-->
+                    <thead>
+                        <tr id="thead">
+                            <th>文件名称</th>
+                            <th>上传时间</th>
+                            <th>文件大小</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr v-for="file in files">
+                            <td v-for="(fileinfo,key) in file" v-if="key !=='FullName'">
+                                <template v-if="key ==='Name'">
+                                    <a :href="'upload/' + fileinfo">{{fileinfo}}</a>
+                                </template>
+                                <template v-else>
+                                    {{fileinfo}}
+                                </template>
+
+
+                            </td>
+                            <td style="text-align:center"><button class="btn btn-default" @click="deleteFile(file.Name)">删除</button></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>                        
+                    </tfoot>
+
+                </table>
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <footer   :class="{footer:over,footerHidden:!over}">
+            <p style="text-align:center;margin-bottom:0">俞程仁版权所有</p>
+        </footer>
+    </div>
+
+
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: function () {
+                return {
+                    files: [],
+                    progressValue: 0,
+                    progressVisible: 'hidden',
+                    searchValue: '',
+                    over: false,
+                    device: false,
+                }
+            },
+            methods: {
+                deleteFile: function (fileName) {
+                    axios.get('file.ashx?action=deleteFile&files=' + fileName).then(function (rsp) {
+                        if (rsp.data !== "") {
+                            app.$toast(rsp.data);
+                        }
+
+
+                        app.getFile();
+                        console.log(rsp)
+                    }).catch(function (error) {
+
+                        console.log(error);
+
+                    });
+
+
+                },
+                serialize: function (object) {
+
+                    var arr = [];
+                    for (var key in object) {
+
+                        arr.push(key + '=' + object[key]);
+
+
+                    }
+                    return arr.join('&');
+                },
+                searchFile: function () {
+                    this.getFile();
+                },
+                getFile: function () {
+                    var searchFile = this.searchValue;
+
+                    //用post ie不会启用缓存，有些解决不刷新问题--yuchengren
+                    axios.post('file.ashx?action=getFiles', this.serialize({
+                        search: searchFile
+
+                    })).then(function (rsp) {
+                        app.files = rsp.data;
+
+                        console.log(rsp)
+                    }).catch(function (error) {
+
+                        console.log(error);
+
+                    });
+                },
+                uploadFile: function (id) {
+                    uploadFile(id);
+                    console.log("good")
+
+                },
+                hasOver: function () {
+                  //  var contentHeight = $(document).height();
+                    var contentHeight = document.body.scrollHeight;
+                    var winHeight = window.screen.availHeight;
+                  //  var winHeight = $(window).height();
+                    console.log(winHeight - contentHeight >= 0)
+                    this.over = winHeight - contentHeight >= 0;
+
+                },
+               
+
+
+
+            },
+            updated: function () {
+
+                app.hasOver()
+
+            },
+            mounted: function () {
+               this.device= navigator.userAgent.indexOf("Android") != -1 ||
+                    document.body.scrollWidth <= 768;
+
+                window.onresize = function () {
+                    app.device= navigator.userAgent.indexOf("Android") != -1 ||
+                    document.body.scrollWidth <= 768;
+
+                }
+
+ 
+                this.getFile();
+
+            },
+            created: function () {
+              
+            },
+            computed: {
+
+                
+
+            },
+
+
+
+        });
+
+
+
+    </script>
+    <script>
+      
+       
+    </script>
+</body>
+</html>

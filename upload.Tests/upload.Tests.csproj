@@ -60,12 +60,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\upload\upload.csproj">
+    <ProjectReference Include="..\upload\FileStoreServer.csproj">
       <Project>{ABB0BE61-B355-4125-993D-14DFA8C014A4}</Project>
-      <Name>upload</Name>
+      <Name>FileStoreServer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
